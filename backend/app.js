@@ -20,29 +20,29 @@ console.log(process.env.NODE_ENV); // production
 
 const app = express();
 
-// const allowedCors = [
-//   'http://sergey-kh.nomoredomains.club/react-mesto-auth',
-//   'http://sergey-kh.nomoredomains.club',
-//   'http://sergey-kh.nomoredomains.club/',
-//   'http://api.sergey-kh.nomoredomains.club',
-//   'http://api.sergey-kh.nomoredomains.club/',
-//   'http://localhost:3001/react-mesto-auth',
-//   'http://localhost:3001',
-//   'http://localhost:3000',
-//   'https://sergey-kh.nomoredomains.club/react-mesto-auth',
-//   'https://sergey-kh.nomoredomains.club',
-//   'https://api.sergey-kh.nomoredomains.club',
-//   'https://localhost:3001/react-mesto-auth',
-//   'https://localhost:3001',
-// ];
+const allowedCors = [
+  'http://sergey-kh.nomoredomains.club/react-mesto-auth',
+  'http://sergey-kh.nomoredomains.club',
+  'http://sergey-kh.nomoredomains.club/',
+  'http://api.sergey-kh.nomoredomains.club',
+  'http://api.sergey-kh.nomoredomains.club/',
+  'http://localhost:3001/react-mesto-auth',
+  'http://localhost:3001',
+  'http://localhost:3000',
+  'https://sergey-kh.nomoredomains.club/react-mesto-auth',
+  'https://sergey-kh.nomoredomains.club',
+  'https://api.sergey-kh.nomoredomains.club',
+  'https://localhost:3001/react-mesto-auth',
+  'https://localhost:3001',
+];
 
-// const corsOptions = {
-//   origin: allowedCors,
-//   optionsSuccessStatus: 200,
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: allowedCors,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 
