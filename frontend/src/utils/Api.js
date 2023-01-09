@@ -95,7 +95,7 @@ class Api extends Component {
 
   changeLikeCardStatus(id, isLiked) {
     if (isLiked) {
-      return fetch(`${this._address}/cards/${id}/likes`, {
+      return fetch(`${this._address}cards/${id}/likes`, {
         method: "PUT",
         credentials: 'include',
         // headers: this._headers,
@@ -105,7 +105,7 @@ class Api extends Component {
         },
       }).then((res) => this._getResponseData(res));
     } else {
-      return fetch(`${this._address}/cards/${id}/likes`, {
+      return fetch(`${this._address}cards/${id}/likes`, {
         method: "DELETE",
         headers: {
           "authorization": 'Bearer ${localStorage.getItem("jwt")}',
