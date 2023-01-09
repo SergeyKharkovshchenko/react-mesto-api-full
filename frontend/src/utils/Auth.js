@@ -47,4 +47,5 @@ export const checkToken = async (jwt) => {
   }
 
 // export const baseUrl= "https://auth.nomoreparties.co/";
-export const baseUrl= "http://localhost:3000/";
+// export const baseUrl = "http://localhost:3000/";
+export const baseUrl = "http://api.sergey-kh.nomoredomains.club/";
