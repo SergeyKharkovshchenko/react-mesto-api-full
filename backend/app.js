@@ -15,6 +15,7 @@ const {
   createUser,
   login,
 } = require('./controllers/users');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 console.log(process.env.NODE_ENV); // production
 
@@ -31,11 +32,14 @@ const corsOptions = {
   credentials: true,
 };
 
+app.use(requestLogger);
+
 app.use(cors(corsOptions));
 
 app.use(cookieParser());
 
 app.use(bodyParser.json());
+app.use(logger);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -53,6 +57,7 @@ app.post('/signin', celebrate({
 }), login);
 app.use('/users', checkAuth, routerUsers);
 app.use('/cards', checkAuth, routerCards);
+app.use(errorLogger);
 app.use(errors());
 app.use('*', (req, res, next) => next(new ItemNotFoundError('Неверный запрос')));
 app.use((err, req, res, next) => {
