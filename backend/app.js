@@ -24,6 +24,7 @@ const allowedCors = [
   'http://sergey-kh.nomoredomains.club/react-mesto-auth',
   'http://sergey-kh.nomoredomains.club',
   'http://api.sergey-kh.nomoredomains.club',
+  'http://api.sergey-kh.nomoredomains.club/',
   'http://localhost:3001/react-mesto-auth',
   'http://localhost:3001',
   'http://localhost:3000',
