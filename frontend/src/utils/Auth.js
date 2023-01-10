@@ -22,7 +22,7 @@ const getResponse = res =>
       method: "POST",
       credentials: 'include',
       headers: {
-        "Origin": "https://sergey-kh.nomoredomains.club/",
+        "Origin": "https://sergey-kh.nomoredomains.club",
         "Accept": "application/json",        
         "Content-Type": "application/json"
     } ,
