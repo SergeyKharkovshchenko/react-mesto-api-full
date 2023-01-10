@@ -34,14 +34,15 @@ const getResponse = res =>
     return getResponse(res);  
   }
 
-export const checkToken = async (jwt) => {
+// export const checkToken = async (jwt) => {
+  export const checkToken = async () => {
   const res = await fetch(`${baseUrl}users/me`, {
       method: "GET",
       credentials: 'include',
       headers: {
         "Accept": "application/json",        
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${jwt}`
+        // "Authorization" : `Bearer ${jwt}`
     } ,
     });
     return getResponse(res);  

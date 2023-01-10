@@ -36,7 +36,7 @@ const App = () => {
 
     useEffect(() => {
     loggedIn && api
-      .getUserAndCards(localStorage.getItem("jwt"))
+      .getUserAndCards()
       .then(([userData, cardData]) => {
         setCards(cardData);
         setCurrentUser(userData);
@@ -61,26 +61,41 @@ const App = () => {
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
     setUserEmail(email);
-    localStorage.setItem("jwt", data.token);
+    // localStorage.setItem("jwt", data.token);
   }, []);
 
   const cbCheckToken = useCallback(async () => {
+
     try {
-      setLoading(true);
-      const jwt = localStorage.getItem("jwt");
-      if (!jwt) {
-        throw new Error("No token in storage");
+        setLoading(true);
+        const user = await auth.checkToken();
+        if (!user) {
+          throw new Error("Invalid user");
+        }
+        setLoggedIn(true);
+        setUserEmail(user.data.email);
+      } catch (error) {console.log(`Ошибка: ${error}`)}
+           finally {
+        setLoading(false);
       }
-      const user = await auth.checkToken(jwt);
-      if (!user) {
-        throw new Error("Invalid user");
-      }
-      setLoggedIn(true);
-      setUserEmail(user.data.email);
-    } catch (error) {console.log(`Ошибка: ${error}`)}
-         finally {
-      setLoading(false);
-    }
+
+
+    // try {
+    //   setLoading(true);
+    //   const jwt = localStorage.getItem("jwt");
+    //   if (!jwt) {
+    //     throw new Error("No token in storage");
+    //   }
+    //   const user = await auth.checkToken(jwt);
+    //   if (!user) {
+    //     throw new Error("Invalid user");
+    //   }
+    //   setLoggedIn(true);
+    //   setUserEmail(user.data.email);
+    // } catch (error) {console.log(`Ошибка: ${error}`)}
+    //      finally {
+    //   setLoading(false);
+    // }
   }, []);
 
   const cbLogin = useCallback(async (email, password) => {
@@ -119,7 +134,7 @@ const App = () => {
   );
 
   const cbLogout = useCallback(() => {
-    localStorage.removeItem("jwt");
+    // localStorage.removeItem("jwt");
     setLoggedIn(false);
     setUserEmail("");
   });
