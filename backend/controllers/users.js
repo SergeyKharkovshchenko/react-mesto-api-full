@@ -49,7 +49,7 @@ const createUser = async (req, res, next) => {
     const hash = await bcryptjs.hash(req.body.password, 10);
     const user = await User.create({ ...req.body, password: hash });
     return res
-      .header('Access-Control-Allow-Origin: sergey-kh.nomoredomains.club')
+      .header('Access-Control-Allow-Origin: *')
       .status(201).json({
         name: user.name,
         avatar: user.avatar,
@@ -115,8 +115,8 @@ const login = async (req, res, next) => {
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
     return res
       .header(
-        // 'Access-Control-Allow-Origin: *',
-        'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
+        'Access-Control-Allow-Origin: *',
+        // 'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
       )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
