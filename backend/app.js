@@ -43,9 +43,9 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.get('/crash-test', () => {
-  setTimeout(() => {
+  process.nextTick(setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
-  }, 0);
+  }, 0));
 });
 
 app.post('/signup', celebrate({
