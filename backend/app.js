@@ -14,6 +14,7 @@ const { checkAuth } = require('./middlewares/auth');
 const {
   createUser,
   login,
+  logout,
 } = require('./controllers/users');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -64,6 +65,12 @@ app.post('/signin', celebrate({
     password: Joi.string().required(),
   }),
 }), login);
+app.post('/logout', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+}), logout);
 app.use('/users', checkAuth, routerUsers);
 app.use('/cards', checkAuth, routerCards);
 app.use(errorLogger);

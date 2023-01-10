@@ -13,7 +13,18 @@ class Api extends Component {
     return res.json();
   }
 
-  getUserInfo(auth) {
+  logOut() {
+    return fetch(`${this._address}logout`, {
+      method: "POST",
+      credentials: 'include',
+           headers: {
+            // "Authorization": `Bearer ${auth}`,
+            "Content-Type": "application/json",
+          },
+    }).then((res) => this._getResponseData(res));    
+  }
+
+  getUserInfo() {
     return fetch(`${this._address}users/me`, {
       method: "GET",
       credentials: 'include',

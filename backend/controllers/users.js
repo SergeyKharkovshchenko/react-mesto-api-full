@@ -101,6 +101,8 @@ const updateAvatar = async (req, res, next) => {
   }
 };
 
+const logout = async (req, res) => res.clearCookie('jwt').json({ message: 'Логаут прошел успешно' });
+
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -121,6 +123,7 @@ const login = async (req, res, next) => {
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: 'true',
+        secure: 'true',
         sameSite: 'none',
       })
       .json({ message: 'Авторизация прошла успешно' });
@@ -136,4 +139,5 @@ module.exports = {
   updateAvatar,
   getUserMe,
   login,
+  logout,
 };

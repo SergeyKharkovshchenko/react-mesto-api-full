@@ -134,6 +134,11 @@ const App = () => {
   );
 
   const cbLogout = useCallback(() => {
+    api
+    .logOut()      
+    .catch((err) => {
+      console.log(err);
+    });
     // localStorage.removeItem("jwt");
     setLoggedIn(false);
     setUserEmail("");
