@@ -13,29 +13,29 @@ class Api extends Component {
     return res.json();
   }
 
-  getUserInfo() {
+  getUserInfo(auth) {
     return fetch(`${this._address}users/me`, {
       method: "GET",
       credentials: 'include',
       headers: {
-        "authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        "authorization": `"${auth}"`,
         "Content-Type": "application/json",
       },
     }).then((res) => this._getResponseData(res));
   }
 
-  getInitialCards() {
+  getInitialCards(auth) {
     return fetch(`${this._address}cards`, {
       credentials: 'include',
            headers: {
-            "authorization": `Bearer ${localStorage.getItem("jwt")}`,
+            "authorization": `"${auth}"`,
             "Content-Type": "application/json",
           },
     }).then((res) => this._getResponseData(res));
   }
 
-  getUserAndCards() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+  getUserAndCards(auth) {
+    return Promise.all([this.getUserInfo(auth), this.getInitialCards(auth)]);
   }
 
   setUserInfo(name, about) {

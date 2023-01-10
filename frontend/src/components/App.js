@@ -36,7 +36,7 @@ const App = () => {
 
     useEffect(() => {
     loggedIn && api
-      .getUserAndCards()
+      .getUserAndCards(localStorage.getItem("jwt"))
       .then(([userData, cardData]) => {
         setCards(cardData);
         setCurrentUser(userData);
