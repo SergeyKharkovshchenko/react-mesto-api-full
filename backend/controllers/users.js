@@ -102,14 +102,13 @@ const updateAvatar = async (req, res, next) => {
 };
 
 const logout = async (req, res) => {
-  res.clearCookie('jwt');
-  res.clearCookie('token');
-  res.clearCookie();
-  return res
+// res.clearCookie('jwt');
+  res
     .header(
       'Access-Control-Allow-Origin: *',
     // 'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
     )
+    .clearCookie('jwt')
     .json({ message: 'Логаут прошел успешно' });
 };
 
