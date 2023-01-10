@@ -48,18 +48,15 @@ const createUser = async (req, res, next) => {
   try {
     const hash = await bcryptjs.hash(req.body.password, 10);
     const user = await User.create({ ...req.body, password: hash });
-    res.setHeader('Access-Control-Allow-Origin', 'https://sergey-kh.nomoredomains.club/');
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept',
-    );
-    return res.status(201).json({
-      name: user.name,
-      avatar: user.avatar,
-      about: user.about,
-      email: user.email,
-      _id: user._id,
-    });
+    return res
+      .header('Access-Control-Allow-Origin: sergey-kh.nomoredomains.club')
+      .status(201).json({
+        name: user.name,
+        avatar: user.avatar,
+        about: user.about,
+        email: user.email,
+        _id: user._id,
+      });
   } catch (err) {
     if (err.name === 'ValidationError') {
       return next(new BadRequestError(`${Object.values(err.errors).map((error) => error.message).join(', ')}`));
@@ -118,7 +115,8 @@ const login = async (req, res, next) => {
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
     return res
       .header(
-        'Access-Control-Allow-Origin:*',
+        // 'Access-Control-Allow-Origin: *',
+        'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
       )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
