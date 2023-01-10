@@ -119,7 +119,7 @@ class Api extends Component {
 const api = new Api({
   // baseUrl: "https://nomoreparties.co/v1/cohort-50/",
   // baseUrl: "http://localhost:3000/",
-  baseUrl: "http://api.sergey-kh.nomoredomains.club/",
+  baseUrl: "https://api.sergey-kh.nomoredomains.club/",
 });
 
 export default api;
