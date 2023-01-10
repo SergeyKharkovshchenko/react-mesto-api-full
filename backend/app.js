@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require('cors');
+// const cors = require('cors');
 const { ItemNotFoundError } = require('./middlewares/errors');
 
 const { PORT = 3000 } = process.env;
