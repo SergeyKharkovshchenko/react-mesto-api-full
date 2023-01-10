@@ -108,7 +108,8 @@ const logout = async (req, res) => {
       'Access-Control-Allow-Origin: *',
     // 'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
     )
-    .clearCookie('jwt')
+    // .clearCookie('jwt')
+    .Cookie('jwt', '')
     .json({ message: 'Логаут прошел успешно' });
 };
 
