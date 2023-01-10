@@ -18,7 +18,7 @@ class Api extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+        "authorization": `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
     }).then((res) => this._getResponseData(res));
@@ -28,7 +28,7 @@ class Api extends Component {
     return fetch(`${this._address}cards`, {
       credentials: 'include',
            headers: {
-            "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+            "authorization": `Bearer ${localStorage.getItem("jwt")}`,
             "Content-Type": "application/json",
           },
     }).then((res) => this._getResponseData(res));
@@ -43,7 +43,7 @@ class Api extends Component {
       method: "PATCH",
       credentials: 'include',
             headers: {
-              "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+              "authorization": `Bearer ${localStorage.getItem("jwt")}`,
               "Content-Type": "application/json",
             },
       body: JSON.stringify({
@@ -58,7 +58,7 @@ class Api extends Component {
       method: "POST",
       credentials: 'include',
             headers: {
-              "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+              "authorization": `Bearer ${localStorage.getItem("jwt")}`,
               "Content-Type": "application/json",
             },
       body: JSON.stringify({
@@ -73,7 +73,7 @@ class Api extends Component {
       method: "DELETE",
       credentials: 'include',
       headers: {
-        "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+        "authorization": `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
     }).then((res) => this._getResponseData(res));
@@ -84,7 +84,7 @@ class Api extends Component {
       method: "PATCH",
       credentials: 'include',
       headers: {
-        "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+        "authorization": `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -100,7 +100,7 @@ class Api extends Component {
         credentials: 'include',
         // headers: this._headers,
         headers: {
-          "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+          "authorization": `Bearer ${localStorage.getItem("jwt")}`,
           "Content-Type": "application/json",
         },
       }).then((res) => this._getResponseData(res));
@@ -108,7 +108,7 @@ class Api extends Component {
       return fetch(`${this._address}cards/${id}/likes`, {
         method: "DELETE",
         headers: {
-          "authorization": 'Bearer ${localStorage.getItem("jwt")}',
+          "authorization": `Bearer ${localStorage.getItem("jwt")}`,
           "Content-Type": "application/json",
         },
       }).then((res) => this._getResponseData(res));
