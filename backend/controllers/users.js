@@ -111,19 +111,18 @@ const login = async (req, res, next) => {
     if (!user) {
       return next(new UnauthorizedError('Неверный пользователь или пароль'));
     }
-    const isLogged = await bcryptjs.compare(password, user.password);
-    if (!isLogged) {
+    const isLoggedIn = await bcryptjs.compare(password, user.password);
+    if (!isLoggedIn) {
       return next(new UnauthorizedError('Неверный пользователь или пароль'));
     }
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-
     return res
       .header(
         'Access-Control-Allow-Origin:*',
       )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
-        httpOnly: true,
+        // httpOnly: true,
         sameSite: true,
       })
       .json({ message: 'Авторизация прошла успешно' });

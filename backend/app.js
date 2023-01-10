@@ -37,7 +37,6 @@ const corsOptions = {
 app.use(requestLogger);
 
 app.use(cors(corsOptions));
-// app.use(cors());
 
 app.use(cookieParser());
 
