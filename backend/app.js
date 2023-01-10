@@ -21,33 +21,33 @@ console.log(process.env.NODE_ENV); // production
 
 const app = express();
 
-// const allowedCors = [
-//   'http://sergey-kh.nomoredomains.club/',
-//   'https://sergey-kh.nomoredomains.club/',
-//   'http//localhost:3000',
-//   'https://localhost:3000',
-// ];
+const allowedCors = [
+  'http://sergey-kh.nomoredomains.club/',
+  'https://sergey-kh.nomoredomains.club/',
+  'http//localhost:3000',
+  'https://localhost:3000',
+];
 
-// const corsOptions = {
-//   origin: allowedCors,
-//   optionsSuccessStatus: 200,
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: allowedCors,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
 
 app.use(requestLogger);
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 
 app.use(cookieParser());
 
 app.use(bodyParser.json());
 
-// app.get('/crash-test', () => {
-//   setTimeout(() => {
-//     throw new Error('Сервер сейчас упадёт');
-//   }, 0);
-// });
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
