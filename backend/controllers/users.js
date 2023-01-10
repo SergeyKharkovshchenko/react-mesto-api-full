@@ -116,12 +116,13 @@ const login = async (req, res, next) => {
       return next(new UnauthorizedError('Неверный пользователь или пароль'));
     }
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-    res.setHeader('Access-Control-Allow-Origin', 'https://sergey-kh.nomoredomains.club/');
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept',
-    );
+
     return res
+      .setHeader('Access-Control-Allow-Origin', 'https://sergey-kh.nomoredomains.club/')
+      .header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept',
+      )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
