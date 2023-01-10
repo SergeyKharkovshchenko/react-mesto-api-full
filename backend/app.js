@@ -25,6 +25,7 @@ const allowedCors = [
   'http://sergey-kh.nomoredomains.club/',
   'https://sergey-kh.nomoredomains.club/',
   'http://localhost:3000',
+  'https://localhost:3000',
 ];
 
 const corsOptions = {
