@@ -118,10 +118,8 @@ const login = async (req, res, next) => {
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
     return res
-      .setHeader('Access-Control-Allow-Origin', '*')
       .header(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Origin:*',
       )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
