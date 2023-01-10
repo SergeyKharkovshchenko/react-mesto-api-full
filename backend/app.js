@@ -23,6 +23,7 @@ const app = express();
 
 const allowedCors = [
   'http://sergey-kh.nomoredomains.club/',
+  'https://sergey-kh.nomoredomains.club/',
   'http://localhost:3000',
 ];
 
@@ -55,6 +56,7 @@ app.post('/signup', celebrate({
     avatar: Joi.string().regex(/https:\/\/.*/),
   }),
 }), createUser);
+
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
