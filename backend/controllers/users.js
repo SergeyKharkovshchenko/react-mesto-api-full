@@ -118,7 +118,7 @@ const login = async (req, res, next) => {
     const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
     return res
-      .setHeader('Access-Control-Allow-Origin', 'https://sergey-kh.nomoredomains.club/')
+      .setHeader('Access-Control-Allow-Origin', '*')
       .header(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept',
