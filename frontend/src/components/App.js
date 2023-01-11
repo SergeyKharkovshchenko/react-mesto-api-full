@@ -69,7 +69,7 @@ const App = () => {
     try {
         setLoading(true);
         const user = await auth.checkToken();
-        console.log("cbCheckToken, user = "+user);
+        console.log("cbCheckToken, user = "+JSON.stringify(user));
         if (!user) {
           throw new Error("Invalid user");
         }
