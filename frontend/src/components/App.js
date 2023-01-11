@@ -71,6 +71,7 @@ const App = () => {
         const user = await auth.checkToken();
         console.log("cbCheckToken, user = "+user);
         console.log("cbCheckToken, JSON.stringify(user) = "+JSON.stringify(user));
+        console.log("cbCheckToken, user.email = "+user.email);
         console.log("cbCheckToken, JSON.stringify(user).email = "+JSON.stringify(user).email);
         if (!user) {
           throw new Error("Invalid user");
