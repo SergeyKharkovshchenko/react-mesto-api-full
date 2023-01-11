@@ -34,7 +34,18 @@ const App = () => {
     cbCheckToken();
   }, []);
 
-  //   useEffect(() => {
+    useEffect(() => {
+    loggedIn && api
+      .getUserAndCards()
+      .then(([cardData]) => {
+        setCards(cardData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [loggedIn]);
+
+  // useEffect(() => {
   //   loggedIn && api
   //     .getUserAndCards()
   //     .then(([userData, cardData]) => {
