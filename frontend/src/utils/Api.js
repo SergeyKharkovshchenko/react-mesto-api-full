@@ -107,6 +107,7 @@ class Api extends Component {
     } else {
       return fetch(`${this._address}cards/${id}/likes`, {
         method: "DELETE",
+        credentials: 'include',
         headers: {
           // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
           "Content-Type": "application/json",
