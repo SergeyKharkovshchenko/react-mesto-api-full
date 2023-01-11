@@ -69,13 +69,14 @@ const App = () => {
     try {
         setLoading(true);
         const user = await auth.checkToken();
-        console.log("cbCheckToken, user = "+JSON.stringify(user).email);
+        console.log("cbCheckToken, user = "+user);
+        console.log("cbCheckToken, JSON.stringify(user) = "+JSON.stringify(user));
+        console.log("cbCheckToken, JSON.stringify(user).email = "+JSON.stringify(user).email);
         if (!user) {
           throw new Error("Invalid user");
         }
         setLoggedIn(true);
-        setUserEmail(JSON.stringify(user).email);
-        console.log("cbCheckToken, email = "+user.data.email);
+        setUserEmail(JSON.stringify(user));
       } catch (error) {console.log(`Ошибка: ${error}`)}
            finally {
         setLoading(false);
