@@ -133,8 +133,8 @@ const App = () => {
     [cbAuthentificate]
   );
 
-  const cbLogout = useCallback(() => {
-    api
+  const cbLogout = useCallback(  () => {
+    auth
     .logOut()      
     .catch((err) => {
       console.log(err);

@@ -34,6 +34,19 @@ const getResponse = res =>
     return getResponse(res);  
   }
 
+  export const logOut = async () => {
+    const res = fetch(`${this._address}logout`, {
+      method: "POST",
+      credentials: 'include',
+      headers: {
+        "Origin": "https://sergey-kh.nomoredomains.club",
+        "Accept": "application/json",        
+        "Content-Type": "application/json"
+    } 
+  })
+  return getResponse(res);  
+}
+
 // export const checkToken = async (jwt) => {
   export const checkToken = async () => {
   const res = await fetch(`${baseUrl}users/me`, {
