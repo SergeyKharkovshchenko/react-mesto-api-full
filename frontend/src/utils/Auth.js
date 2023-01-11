@@ -52,6 +52,7 @@ const getResponse = res =>
       method: "GET",
       credentials: 'include',
       headers: {
+        "Origin": "https://sergey-kh.nomoredomains.club",
         "Accept": "application/json",        
         "Content-Type": "application/json",
     } ,
