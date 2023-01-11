@@ -34,16 +34,16 @@ const App = () => {
     cbCheckToken();
   }, []);
 
-    useEffect(() => {
-    loggedIn && api
-      .getUserAndCards()
-      .then(([cardData]) => {
-        setCards(cardData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [loggedIn]);
+  //   useEffect(() => {
+  //   loggedIn && api
+  //     .getUserAndCards()
+  //     .then(([cardData]) => {
+  //       setCards(cardData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [loggedIn]);
 
   // useEffect(() => {
   //   loggedIn && api
@@ -86,6 +86,10 @@ const App = () => {
         }
         setLoggedIn(true);
         setUserEmail(user.email);
+
+        const cards = await api.getInitialCards();
+        JSON.stringify(cards);
+              setCards(cards);
       } catch (error) {console.log(`Ошибка: ${error}`)}
            finally {
         setLoading(false);
