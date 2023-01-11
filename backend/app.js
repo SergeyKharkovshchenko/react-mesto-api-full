@@ -65,12 +65,9 @@ app.post('/signin', celebrate({
     password: Joi.string().required(),
   }),
 }), login);
-app.post('/logout', celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required(),
-  }),
-}), logout);
+
+app.post('/logout', logout);
+
 app.use('/users', checkAuth, routerUsers);
 app.use('/cards', checkAuth, routerCards);
 app.use(errorLogger);
