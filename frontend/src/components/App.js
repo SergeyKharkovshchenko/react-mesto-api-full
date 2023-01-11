@@ -30,9 +30,9 @@ const App = () => {
   const [cards, setCards] = React.useState([]);
   const [tooltipMessage, setTooltipMessage] = useState("");
 
-  useEffect(() => {
-    cbCheckToken();
-  }, []);
+  // useEffect(() => {
+  //   cbCheckToken();
+  // }, []);
 
   useEffect(() => {
     cbCheckToken();
@@ -67,8 +67,7 @@ const App = () => {
         }
         setLoggedIn(true);
         setUserEmail(user.email);
-        setCurrentUser(user);
-
+        // setCurrentUser(user);
         const cards = await api.getInitialCards();
         JSON.stringify(cards);
               setCards(cards);
