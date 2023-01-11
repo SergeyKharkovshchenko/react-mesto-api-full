@@ -34,16 +34,9 @@ const App = () => {
     cbCheckToken();
   }, []);
 
-  //   useEffect(() => {
-  //   loggedIn && api
-  //     .getUserAndCards()
-  //     .then(([cardData]) => {
-  //       setCards(cardData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [loggedIn]);
+  useEffect(() => {
+    cbCheckToken();
+  }, [loggedIn]);
 
   // useEffect(() => {
   //   loggedIn && api
@@ -56,18 +49,6 @@ const App = () => {
   //       console.log(err);
   //     });
   // }, [loggedIn]);
-
-  // useEffect(() => {
-  //   loggedIn && api
-  //     .getUserInfo()
-  //     .then((userData) => {
-  //       setCurrentUser(userData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [loggedIn]);
-
 
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
