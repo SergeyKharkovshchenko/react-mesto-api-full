@@ -57,6 +57,7 @@ const getResponse = res =>
         "Content-Type": "application/json",
     } ,
     });
+    console.log("checkToken, res = "+res);
     return getResponse(res);  
   }
 
