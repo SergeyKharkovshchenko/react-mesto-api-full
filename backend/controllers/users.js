@@ -132,7 +132,6 @@ const login = async (req, res, next) => {
     return res
       .header(
         'Access-Control-Allow-Origin: *',
-        // 'Access-Control-Allow-Origin: sergey-kh.nomoredomains.club',
       )
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
