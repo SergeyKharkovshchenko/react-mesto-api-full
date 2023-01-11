@@ -46,16 +46,16 @@ const App = () => {
       });
   }, [loggedIn]);
 
-  useEffect(() => {
-    loggedIn && api
-      .getUserInfo()
-      .then((userData) => {
-        setCurrentUser(userData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   loggedIn && api
+  //     .getUserInfo()
+  //     .then((userData) => {
+  //       setCurrentUser(userData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [loggedIn]);
 
 
   const cbAuthentificate = useCallback((data, email) => {
