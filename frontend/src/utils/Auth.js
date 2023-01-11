@@ -47,7 +47,6 @@ const getResponse = res =>
   return getResponse(res);  
 }
 
-// export const checkToken = async (jwt) => {
   export const checkToken = async () => {
   const res = await fetch(`${baseUrl}users/me`, {
       method: "GET",
@@ -55,12 +54,9 @@ const getResponse = res =>
       headers: {
         "Accept": "application/json",        
         "Content-Type": "application/json",
-        // "Authorization" : `Bearer ${jwt}`
     } ,
     });
     return getResponse(res);  
   }
 
-// export const baseUrl= "https://auth.nomoreparties.co/";
-// export const baseUrl = "http://localhost:3000/";
 export const baseUrl = "https://api.sergey-kh.nomoredomains.club/";

@@ -34,17 +34,17 @@ const App = () => {
     cbCheckToken();
   }, []);
 
-    useEffect(() => {
-    loggedIn && api
-      .getUserAndCards()
-      .then(([userData, cardData]) => {
-        setCards(cardData);
-        setCurrentUser(userData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [loggedIn]);
+  //   useEffect(() => {
+  //   loggedIn && api
+  //     .getUserAndCards()
+  //     .then(([userData, cardData]) => {
+  //       setCards(cardData);
+  //       setCurrentUser(userData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [loggedIn]);
 
   // useEffect(() => {
   //   loggedIn && api
@@ -65,7 +65,6 @@ const App = () => {
   }, []);
 
   const cbCheckToken = useCallback(async () => {
-
     try {
         setLoading(true);
         const user = await auth.checkToken();
@@ -78,7 +77,6 @@ const App = () => {
            finally {
         setLoading(false);
       }
-
   }, []);
 
   const cbLogin = useCallback(async (email, password) => {
