@@ -79,23 +79,6 @@ const App = () => {
         setLoading(false);
       }
 
-
-    // try {
-    //   setLoading(true);
-    //   const jwt = localStorage.getItem("jwt");
-    //   if (!jwt) {
-    //     throw new Error("No token in storage");
-    //   }
-    //   const user = await auth.checkToken(jwt);
-    //   if (!user) {
-    //     throw new Error("Invalid user");
-    //   }
-    //   setLoggedIn(true);
-    //   setUserEmail(user.data.email);
-    // } catch (error) {console.log(`Ошибка: ${error}`)}
-    //      finally {
-    //   setLoading(false);
-    // }
   }, []);
 
   const cbLogin = useCallback(async (email, password) => {
@@ -133,7 +116,7 @@ const App = () => {
     [cbAuthentificate]
   );
 
-  const cbLogout = useCallback(  () => {
+  const cbLogout = useCallback( () => {
     auth
     .logOut()      
     .catch((err) => {
@@ -142,7 +125,7 @@ const App = () => {
     // localStorage.removeItem("jwt");
     setLoggedIn(false);
     setUserEmail("");
-  });
+  }, []);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке

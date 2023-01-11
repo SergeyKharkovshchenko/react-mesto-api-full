@@ -35,7 +35,7 @@ const getResponse = res =>
   }
 
   export const logOut = async () => {
-    const res = fetch(`${this._address}logout`, {
+    const res = fetch(`${baseUrl}logout`, {
       method: "POST",
       credentials: 'include',
       headers: {
