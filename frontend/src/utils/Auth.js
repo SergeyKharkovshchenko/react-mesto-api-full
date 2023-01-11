@@ -35,7 +35,7 @@ const getResponse = res =>
   }
 
   export const logOut = async () => {
-    const res = fetch(`${baseUrl}logout`, {
+    const res = await fetch(`${baseUrl}logout`, {
       method: "POST",
       credentials: 'include',
       headers: {
@@ -57,7 +57,8 @@ const getResponse = res =>
         "Content-Type": "application/json",
     } ,
     });
-    console.log("checkToken, res = "+res);
+    console.log("checkToken, res.json() = "+res.json());
+    console.log("checkToken, res.text() = "+res.text());
     return getResponse(res);  
   }
 
