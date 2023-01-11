@@ -67,6 +67,7 @@ const App = () => {
         }
         setLoggedIn(true);
         setUserEmail(user.email);
+        setCurrentUser(user);
 
         const cards = await api.getInitialCards();
         JSON.stringify(cards);
