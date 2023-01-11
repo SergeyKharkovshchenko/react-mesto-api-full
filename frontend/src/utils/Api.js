@@ -18,7 +18,6 @@ class Api extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        // "Authorization": `Bearer ${auth}`,
         "Content-Type": "application/json",
       },
     }).then((res) => this._getResponseData(res));
@@ -28,7 +27,6 @@ class Api extends Component {
     return fetch(`${this._address}cards`, {
       credentials: 'include',
            headers: {
-            // "Authorization": `Bearer ${auth}`,
             "Content-Type": "application/json",
           },
     }).then((res) => this._getResponseData(res));
@@ -43,7 +41,6 @@ class Api extends Component {
       method: "PATCH",
       credentials: 'include',
             headers: {
-              // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
               "Content-Type": "application/json",
             },
       body: JSON.stringify({
@@ -58,7 +55,6 @@ class Api extends Component {
       method: "POST",
       credentials: 'include',
             headers: {
-              // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
               "Content-Type": "application/json",
             },
       body: JSON.stringify({
@@ -73,7 +69,6 @@ class Api extends Component {
       method: "DELETE",
       credentials: 'include',
       headers: {
-        // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
     }).then((res) => this._getResponseData(res));
@@ -84,7 +79,6 @@ class Api extends Component {
       method: "PATCH",
       credentials: 'include',
       headers: {
-        // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -98,9 +92,7 @@ class Api extends Component {
       return fetch(`${this._address}cards/${id}/likes`, {
         method: "PUT",
         credentials: 'include',
-        // headers: this._headers,
         headers: {
-          // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
           "Content-Type": "application/json",
         },
       }).then((res) => this._getResponseData(res));
@@ -109,7 +101,6 @@ class Api extends Component {
         method: "DELETE",
         credentials: 'include',
         headers: {
-          // "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
           "Content-Type": "application/json",
         },
       }).then((res) => this._getResponseData(res));
@@ -118,8 +109,6 @@ class Api extends Component {
 }
 
 const api = new Api({
-  // baseUrl: "https://nomoreparties.co/v1/cohort-50/",
-  // baseUrl: "http://localhost:3000/",
   baseUrl: "https://api.sergey-kh.nomoredomains.club/",
 });
 

@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken');
 const User = require('../models/user');
 const { ItemNotFoundError, BadRequestError, UnauthorizedError } = require('../middlewares/errors');
 
-const { JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getAllUsers = async (req, res, next) => {
   try {
@@ -102,7 +102,6 @@ const updateAvatar = async (req, res, next) => {
 };
 
 const logout = async (req, res) => {
-// res.clearCookie('jwt');
   await res
     .header(
       'Access-Control-Allow-Origin: *',
@@ -128,7 +127,8 @@ const login = async (req, res, next) => {
     if (!isLoggedIn) {
       return next(new UnauthorizedError('Неверный пользователь или пароль'));
     }
-    const token = JWT.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+
+    const token = JWT.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
     return res
       .header(
         'Access-Control-Allow-Origin: *',
