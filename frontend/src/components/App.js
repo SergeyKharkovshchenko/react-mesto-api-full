@@ -61,6 +61,7 @@ const App = () => {
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
     setUserEmail(email);
+    console.log("cbAuthentificate, email = "+email);
     // localStorage.setItem("jwt", data.token);
   }, []);
 
@@ -73,6 +74,7 @@ const App = () => {
         }
         setLoggedIn(true);
         setUserEmail(user.data.email);
+        console.log("cbCheckToken, email = "+user.data.email);
       } catch (error) {console.log(`Ошибка: ${error}`)}
            finally {
         setLoading(false);
